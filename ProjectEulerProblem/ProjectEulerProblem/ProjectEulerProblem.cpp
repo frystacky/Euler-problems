@@ -45,21 +45,23 @@ void Problem2()
 	sum = 0;
 	int temp = 0;
 	int evenTemp = 0;
-	int term = 3;
+	int term = 1;
 	int num1 = 1;
-	int num2 = 2;
+	int num2 = 1;
 
-	while (sum < forMil)
+	int termcount = 0;
+
+	while (num1 < forMil)
 	{
 		temp = num1 + num2;
 
-		if (num1 % 2 == 0 && sum < forMil)
+		if (num1 % 2 == 0 && num1 < forMil)
 		{
-			cout << num1 << endl;
+			cout <<"Num1 is " << num1 << endl;
 			sum += num1;
 			cout << " in term " << term << " sum+= num1  is " << sum << endl;
 
-			if (sum > forMil)
+			if (num1 > forMil)
 			{
 				sum = evenTemp;
 				break;
@@ -84,8 +86,8 @@ void Problem2()
 		evenTemp = sum;
 	}
 
-	cout << sum << endl;
-	cout << term;
+	cout <<"Sum is "<< sum << endl;
+	cout <<"The term is "<< term;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
