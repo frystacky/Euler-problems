@@ -11,6 +11,7 @@ const int forMil = 4000000;		//for problem 2
 
 void Problem1();
 void Problem2();
+void Problem3();
 
 int main()
 {
@@ -18,7 +19,9 @@ int main()
 
 
 	//Problem1();
-	Problem2();
+	//Problem2();
+
+	Problem3();
 }
 
 void Problem1()
@@ -67,19 +70,7 @@ void Problem2()
 				break;
 			}
 		}
-		/*if(num2 % 2 == 0 && sum < forMil) 
-		{
-			cout << num2 << endl;
-			sum += num2;
-			cout << " in term " << term << " sum+= num2  is " << sum << endl;
 
-			if (sum > forMil)
-			{
-				sum = evenTemp;
-				break;
-			}
-		}
-		*/
 		term++;
 		num1 = num2;
 		num2 = temp;
@@ -88,6 +79,17 @@ void Problem2()
 
 	cout <<"Sum is "<< sum << endl;
 	cout <<"The term is "<< term;
+}
+
+
+void Problem3()
+{
+	sum = 0;
+	int numToSolve = 0;
+	
+	cout << "Enter a numer to solve for prime factor\n";
+	cin >> numToSolve;
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
