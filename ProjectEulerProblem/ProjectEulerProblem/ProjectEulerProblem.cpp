@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -85,10 +86,50 @@ void Problem2()
 void Problem3()
 {
 	sum = 0;
-	int numToSolve = 0;
-	
-	cout << "Enter a numer to solve for prime factor\n";
-	cin >> numToSolve;
+	bool problemNotSolved = true;
+	vector <int> primesFactors;
+	//int vectorIndex = 1;
+
+	long divisor = 2;
+	long long numToGetPrime = 0;
+
+	cout << "Enter a number to get it's prime factor\n";
+	cin >> numToGetPrime;
+
+	cout << "Number entered is " << numToGetPrime << endl;
+
+	while (problemNotSolved)
+	{
+
+		for (int divisor = 2; divisor <= numToGetPrime; divisor++)
+		{
+			if (divisor == numToGetPrime)
+			{
+				primesFactors.push_back(divisor);
+				//cout << divisor << endl;
+				problemNotSolved = false;
+				break;
+			}
+			else if (numToGetPrime % divisor == 0)
+			{
+				/*
+				if number divived by the divisor is a whole number, its one of its
+				factors and it will be added to the vector then make the new numToGetPrime
+				be the answer of divied numbers
+				*/
+				numToGetPrime = numToGetPrime / divisor;
+				//cout << divisor << endl;
+				primesFactors.push_back(divisor);
+			}
+		}
+	}
+
+	cout << "The list is of prime factors is\n";
+
+	for (auto i = primesFactors.begin(); i != primesFactors.end(); ++i)
+	{
+		cout << *i << endl;
+	}
 	
 }
 
