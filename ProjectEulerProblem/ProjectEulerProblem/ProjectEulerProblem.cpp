@@ -4,6 +4,7 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ const int forMil = 4000000;		//for problem 2
 void Problem1();
 void Problem2();
 void Problem3();
+void Problem4();
 
 int main()
 {
@@ -21,8 +23,8 @@ int main()
 
 	//Problem1();
 	//Problem2();
-
-	Problem3();
+	//Problem3();
+	Problem4();
 }
 
 void Problem1()
@@ -131,6 +133,32 @@ void Problem3()
 		cout << *i << endl;
 	}
 	
+}
+
+void Problem4()
+{
+	sum = 0;
+
+	int digitSize = 0;
+	int currentPalindrome = 0;
+	int pastPalindrome = 0;
+
+	int loopCondition = 9;
+
+	cout << "Select the size of the digit of the palindromic number you want to solve for\n";
+	cin >> digitSize;
+	cout << "Size selected " << digitSize << endl;
+
+	if (digitSize > 1) 
+	{
+		loopCondition = pow(10, digitSize);
+		cout << loopCondition;
+	}
+
+	for()
+
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
