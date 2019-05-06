@@ -1,3 +1,3 @@
 ﻿  ProjectEulerProblem.cpp
-c:\users\danie\desktop\euler-problems\projecteulerproblem\projecteulerproblem\projecteulerproblem.cpp(154): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\danie\desktop\euler-problems\projecteulerproblem\projecteulerproblem\projecteulerproblem.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   ProjectEulerProblem.vcxproj -> C:\Users\danie\Desktop\Euler-problems\ProjectEulerProblem\Debug\ProjectEulerProblem.exe

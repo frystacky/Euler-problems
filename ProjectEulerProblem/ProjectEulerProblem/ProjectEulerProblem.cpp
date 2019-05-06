@@ -4,17 +4,23 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <cmath>				//pow
+#include <algorithm>			//sort
 
 using namespace std;
 
 int sum = 0;
 const int forMil = 4000000;		//for problem 2
 
+int currentPalindrome = 0;		//for problem 4
+int pastPalindrome = 0;			// for problem 4
+vector <int> palindromeContainer;		//holds all the palindromes for problem 4
+
 void Problem1();
 void Problem2();
 void Problem3();
 void Problem4();
+void Test(int x, int y, int z);
 
 int main()
 {
@@ -140,10 +146,13 @@ void Problem4()
 	sum = 0;
 
 	int digitSize = 0;
-	int currentPalindrome = 0;
-	int pastPalindrome = 0;
 
-	int loopCondition = 9;
+
+	int loopCondition = 10;
+
+	int n = 0;
+	int rev = 0;
+	int digit = 0;
 
 	cout << "Select the size of the digit of the palindromic number you want to solve for\n";
 	cin >> digitSize;
@@ -152,13 +161,72 @@ void Problem4()
 	if (digitSize > 1) 
 	{
 		loopCondition = pow(10, digitSize);
-		cout << loopCondition;
+		cout << loopCondition << " Is loopcondition" << endl;
 	}
 
-	for()
+	for (int i = 1; i < loopCondition; i++)
+	{
+		for (int j = 1; j < loopCondition; j++) 
+		{
+			sum = i * j;
+			//cout << sum << endl;
+			//cout << " j is " << j << endl;
+			
+			Test(sum, i , j);
+	
+		}
+	}
+
+	//cout << currentPalindrome << " current is" <<endl;
+	//cout << pastPalindrome << " pass is" <<endl;
+	sort(palindromeContainer.begin(),palindromeContainer.end());
+
+	cout << palindromeContainer.back() << endl;
+
+}
 
 
+void Test(int x, int y, int z)
+{
+	int n, num, digit, rev = 0;
 
+	//cout << "Enter a positive number: ";
+	num = x;
+
+	n = num;
+
+	do
+	{
+		digit = num % 10;
+		//cout << digit << " Digit is" << endl;
+		rev = (rev * 10) + digit;
+		//cout << rev << " rev is" << endl;
+		num = num / 10;
+		//cout << num << " num is" << endl;
+	} while (num != 0);
+
+	//cout << " The reverse of the number is: " << rev << endl;
+
+	if (n == rev)
+	{
+		//cout << " The number is a palindrome.";
+		palindromeContainer.push_back(n);
+	}
+		
+		/*if (currentPalindrome > pastPalindrome)
+		{
+			
+			//currentPalindrome = n;
+			pastPalindrome = n;
+			cout << "The i and j are " << y << " " << z << " " << pastPalindrome << endl;
+		}
+		else 
+		{
+			
+			currentPalindrome = n;
+			cout << "The i and j are " << y << " " << z << " " << currentPalindrome << endl;
+		}
+		*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
