@@ -6,6 +6,7 @@
 #include <vector>
 #include <cmath>				//pow
 #include <algorithm>			//sort
+#include <string>
 
 using namespace std;
 
@@ -16,11 +17,49 @@ int currentPalindrome = 0;		//for problem 4
 int pastPalindrome = 0;			// for problem 4
 vector <int> palindromeContainer;		//holds all the palindromes for problem 4
 
+
+//for hash table example
+string input;
+const int tableSize = 10;
+
+
+struct item
+{
+	string name;
+	string type;
+	item* next;
+};
+
+struct node
+{
+	int data;
+	struct node* left;
+	struct node* right;
+
+};
+
+struct node* newNode(int data)
+{
+	struct node* node = new struct node;
+	node->data = data;
+	node->left = NULL;
+	node->right = NULL;
+	return node;
+}
+
+item* HashTable[tableSize];
+//end of hash table example
+
+
 void Problem1();
 void Problem2();
 void Problem3();
 void Problem4();
 void Test(int x, int y, int z);
+
+int HashTest(string key);
+void SetTable();
+void areSame(int a, int b);
 
 int main()
 {
@@ -30,7 +69,23 @@ int main()
 	//Problem1();
 	//Problem2();
 	//Problem3();
-	Problem4();
+	//Problem4();
+
+	/*
+	SetTable();
+	getline(cin, input);
+	cout << HashTest(input) << endl;
+	*/
+
+	areSame(3, 10);
+
+	struct node *root = newNode(9);
+	root->left = newNode(8);
+	root->right = newNode(3);
+	root->left->left = newNode(499);
+	
+	cout << root->left->left->data << endl;
+
 }
 
 void Problem1()
@@ -227,6 +282,54 @@ void Test(int x, int y, int z)
 			cout << "The i and j are " << y << " " << z << " " << currentPalindrome << endl;
 		}
 		*/
+}
+
+//hastable example
+int HashTest(string key)
+{
+		//intro to how hash tables work
+
+		int hash = 0;
+		int index;
+
+		//index = key.length();
+
+		for (int i = 0; i < key.length(); i++)
+		{
+			hash += (int)key[i];
+			cout << "hash = " << hash << endl;
+		}
+
+		//cout << "Key[0] " << key[0] << endl;
+		//cout << "Key[1] " << key[1] << endl;
+		//cout << "Key[2] " << key[2] << endl;
+
+		index = hash % tableSize;
+
+		return index;
+}
+
+void SetTable() 
+{
+	for (int i = 0; i < tableSize; i++)
+	{
+		HashTable[i] = new item;
+		HashTable[i]->name = "empty";
+		HashTable[i]->type = "empty";
+		HashTable[i]->next = NULL;
+	}
+}
+
+void areSame(int a, int b)
+{
+	if (a^b)
+	{
+		cout << "Not same " << (a ^ b) << endl;
+	}
+	else 
+	{
+		cout << "Are same " << (a ^ b) << endl;
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
